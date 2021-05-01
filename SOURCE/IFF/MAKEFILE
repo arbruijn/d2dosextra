@@ -27,13 +27,5 @@ IFFTESTV_SRCS = ifftestv.c
 IFFTESTV_LIBS = iff.lib vesa.lib cflib.lib cfile.lib
 
 #rules and targets common to all Miner makefiles
-%include $(INIT)\makefile.def
+!include ..\..\init\wmake.def
 
-### OPUS MKMF:  Do not remove this line!  Generated dependencies follow.
-
-iff.obj: conio.h fix.h gr.h iff.h malloc.h mem.h stdio.h stdlib.h string.h \
-	 types.h
-
-ifftest.obj: conio.h fix.h gr.h iff.h stdio.h stdlib.h types.h
-
-ifftestv.obj: conio.h fix.h gr.h iff.h stdio.h types.h vesa.h

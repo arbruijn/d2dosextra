@@ -21,10 +21,5 @@ TEST_SRCS = test.c mactest.c
 TEST_LIBS = io.lib
 
 #rules and targets common to all Miner makefiles
-%include $(INIT)\makefile.def
+!include ..\..\init\wmake.def
 
-### OPUS MKMF:  Do not remove this line!  Generated dependencies follow.
-
-mactest.obj: psmacros.inc
-
-test.obj: mono.h

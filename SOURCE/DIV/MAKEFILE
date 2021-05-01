@@ -27,9 +27,5 @@ TESTD_SRCS = testd.c testda.asm
 TESTD_LIBS = div0.lib
 
 #rules and targets common to all Miner makefiles
-%include $(INIT)\makefile.def
-
-### OPUS MKMF:  Do not remove this line!  Generated dependencies follow.
-
-testd.obj: conio.h div0.h stdio.h stdlib.h
+!include ..\..\init\wmake.def
 

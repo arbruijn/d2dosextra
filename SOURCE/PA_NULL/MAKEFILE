@@ -15,8 +15,7 @@ POLY_ACC_OBJS = poly_acc.obj
 CLEAN_TARGS = $(OBJDIR)\*.obj
 
 #rules and targets common to all Miner makefiles
-%include $(INIT)\makefile.def
+!include ..\..\init\wmake.def
 
-### OPUS MKMF:  Do not remove this line!  Generated dependencies follow.
 
 
