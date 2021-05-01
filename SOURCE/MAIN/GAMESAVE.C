@@ -1707,13 +1707,17 @@ int load_level(char * filename_passed)
 	Assert(sig == 'PLVL');
 
 	if (version >= 8) {			//read dummy data
+		#ifdef POST_1_2
 		if (HoardEquipped())
+		#endif
 		{
 			read_int(LoadFile);
 			read_short(LoadFile);
 			read_byte(LoadFile);
 		}
+		#ifdef POST_1_2
 		else Error("This level requires the Vertigo Enhanced version of D2.");
+		#endif
 
 	}
 

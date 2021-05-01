@@ -198,7 +198,11 @@ void autodemo_menu_check(int nitems, newmenu_item * items, int *last_key, int ci
 			#endif
 
 		#ifdef SANTA		//say this is hoard version
+		#ifdef POST_1_2
 		if (HoardEquipped()) {
+		#else
+		{
+		#endif
 			gr_set_curfont(MEDIUM2_FONT);
 			gr_printf(MenuHires?495:00,MenuHires?88:44,"Vertigo");
 		}

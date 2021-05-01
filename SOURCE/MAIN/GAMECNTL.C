@@ -1434,8 +1434,10 @@ int HandleSystemKey(int key)
 			if (!Player_is_dead && !((Game_mode & GM_MULTI) && !(Game_mode & GM_MULTI_COOP))) {
 				full_palette_save();
 				state_restore_all(1, 0, NULL);
+				#ifdef POST_1_2
 				if (Game_paused)
 					do_game_pause();
+				#endif
 			}
 			break;
 

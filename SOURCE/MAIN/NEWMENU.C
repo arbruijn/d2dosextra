@@ -1404,8 +1404,10 @@ RePaintNewmenu4:
 			save_screen_shot(0);
 			PA_DFX (pa_set_frontbuffer_current());
 			PA_DFX (pa_set_front_to_read());
+			#ifdef POST_1_2
 			for (i=0;i<nitems;i++)
 				item[i].redraw=1;
+			#endif
 			
 			MAC(show_cursor());
 			MAC(key_flush());

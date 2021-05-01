@@ -2112,8 +2112,10 @@ void ShowLevelIntro(int level_num)
 					{
 						MenuHiresAvailable = 0;		//pretend we can't do highres
 
+						#ifdef POST_1_2
 						if (hires_save != MenuHiresAvailable)
 							Screen_mode = -1;		//force reset
+						#endif
 
 					}
 					do_briefing_screens ("robot.tex",level_num);

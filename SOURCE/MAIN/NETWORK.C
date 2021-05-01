@@ -805,6 +805,7 @@ void network_welcome_player(sequence_packet *their)
 
    WaitForRefuseAnswer=0;
 
+	#ifdef POST_1_2
 	if (FindArg("-NoMatrixCheat"))
 	{
 		if (their->player.version_minor & 0x0F<3)
@@ -813,6 +814,7 @@ void network_welcome_player(sequence_packet *their)
 					return;
 		}
 	}
+	#endif
 
 	if (HoardEquipped())
 	{
@@ -2022,7 +2024,11 @@ int network_send_request(void)
 	 return 1;
 
 	for (i = 0; i < MAX_NUM_NET_PLAYERS; i++)
-	  if (NetPlayers.players[i].connected)
+	  if (NetPlayers.players[i].connected
+		#ifndef POST_1_2
+		&& (i != Player_num)
+		#endif
+		)
 	      break;
 
 	Assert(i < MAX_NUM_NET_PLAYERS);
@@ -2034,7 +2040,9 @@ int network_send_request(void)
 	My_Seq.type = PID_REQUEST;
 	My_Seq.player.connected = Current_level_num;
 
+	#ifdef POST_1_2
 	if (Network_game_type == IPX_GAME) {
+	#endif
 		#ifndef MACINTOSH
 		ipx_send_internetwork_packet_data((ubyte *)&My_Seq, sizeof(sequence_packet), NetPlayers.players[i].network.ipx.server, NetPlayers.players[i].network.ipx.node);
 		#else
@@ -2046,7 +2054,9 @@ int network_send_request(void)
 									NetPlayers.players[i].network.appletalk.net,
 									NetPlayers.players[i].network.appletalk.socket);
 	#endif
+	#ifdef POST_1_2
 	}
+	#endif
 
 	return i;
 }
@@ -2927,7 +2937,11 @@ void network_game_param_poll( int nitems, newmenu_item * menus, int * key, int c
 {
 	static oldmaxnet=0;
 
-	if (((HoardEquipped() && menus[opt_team_hoard].value) || (menus[opt_team_anarchy].value || menus[opt_capture].value)) && !menus[opt_closed].value && !menus[opt_refuse].value) { 
+	if (((
+		#ifdef POST_1_2
+		HoardEquipped() &&
+		#endif
+		menus[opt_team_hoard].value) || (menus[opt_team_anarchy].value || menus[opt_capture].value)) && !menus[opt_closed].value && !menus[opt_refuse].value) { 
 		menus[opt_refuse].value = 1;
 		menus[opt_refuse].redraw = 1;
 		menus[opt_refuse-1].value = 0;
@@ -2969,8 +2983,10 @@ void network_game_param_poll( int nitems, newmenu_item * menus, int * key, int c
 		}
 		#endif
 
+		#ifdef POST_1_2
 	     if (!Netgame.game_flags & NETGAME_FLAG_SHOW_MAP) 
 			Netgame.game_flags |= NETGAME_FLAG_SHOW_MAP;
+		#endif
 
 		if (Netgame.PlayTimeAllowed || Netgame.KillGoal)
 		{

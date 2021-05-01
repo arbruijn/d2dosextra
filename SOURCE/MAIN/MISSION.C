@@ -289,7 +289,9 @@ read_mission_file(char *filename,int count,int location)
 			p = get_parm_value("xname",mfile);
 		}
 
+		#ifdef POST_1_2
 		if (HoardEquipped())
+		#endif
 		{
 			if (!p) {		//try super-enhanced mission!
 				cfseek(mfile,0,SEEK_SET);
