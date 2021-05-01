@@ -3525,6 +3525,15 @@ int SW_drawn[2], SW_x[2], SW_y[2], SW_w[2], SW_h[2];
 //window.
 void do_cockpit_window_view(int win,object *viewer,int rear_view_flag,int user,char *label)
 {
+
+#ifdef WINDOWS
+	int saved_window_x, saved_window_y;
+#endif
+
+	int boxnum;
+	object *viewer_save = Viewer;
+	int rear_view_save = Rear_view;
+	int w,h,dx;
 	WINDOS(
 		dd_grs_canvas window_canv,
 		grs_canvas window_canv
@@ -3533,18 +3542,9 @@ void do_cockpit_window_view(int win,object *viewer,int rear_view_flag,int user,c
 		static dd_grs_canvas overlap_canv,
 		static grs_canvas overlap_canv
 	);
-
-#ifdef WINDOWS
-	int saved_window_x, saved_window_y;
-#endif
-
-	object *viewer_save = Viewer;
 	static int overlap_dirty[2]={0,0};
-	int boxnum;
 	static int window_x,window_y;
 	gauge_box *box;
-	int rear_view_save = Rear_view;
-	int w,h,dx;
 
 	if (viewer == NULL) {								//this user is done
 
