@@ -8,10 +8,10 @@
 #define RELEASE 1				//RELEASE_VERSION set  
 #define NDEBUG 1				//NDEBUG set  
 #define NMONO 1				//NMONO set  
-#define WINDOWS 1				//TARGSYS == WIN32  
+//#define WINDOWS				//TARGSYS == DOS4G  
 //#define SHAREWARE				//SHAREWARE not set 
 #define TACTILE 1				//TACTILE set  
-//#define SANTA				//SANTA not set 
+#define SANTA 1				//SANTA set 
 //#define ARCADE				//ARCADE not set 
 //#define DEMO_ONLY				//DEMO_ONLY not set 
 //#define _MARK_ON				//MARK_ON not set 
