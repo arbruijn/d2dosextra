@@ -9,15 +9,16 @@
 
 # Subdirs to make for the DOS libraries
 SUBSYSTEMS_DOS = includes misc mem fix cfile pa_null 2d vga bios iff div &
-	vecmat 3d texmap main #ui tactile unarj sosdigi sosmidi
+	vecmat 3d texmap ext main #ui tactile unarj sosdigi sosmidi
 
 # Subdirs to make for the Win95 libraries
 SUBSYSTEMS_WIN = includes misc mem fix cfile pa_null 2d vga novga iff div &
 	vecmat tactile win95 3d texmap unarj main
 
 # All subdirs.  Needed for clean to work
-SUBSYSTEMS = includes misc mem fix cfile pa_null 2d vga bios iff div &
-	ui vecmat 3d texmap tactile unarj sosdigi sosmidi win95 novga
+#SUBSYSTEMS = includes misc mem fix cfile pa_null 2d vga bios iff div &
+#	ui vecmat 3d texmap tactile unarj sosdigi sosmidi win95 novga
+SUBSYSTEMS = $(SUBSYSTEMS_DOS)
 
 # What to make in the subdirs if nothing specified
 SUBTARGETS = optimize no_mono no_debug linstall		#for release

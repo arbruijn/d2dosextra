@@ -1,0 +1,5 @@
+#lib tactile.lib
+tactile Tactile_open_:Tactile_done_+0x23,0:0,_TactileStick:_TactileStick+4
+iforce SetJoystickPort_:StatusCheck_+0x256,_iforce_id:_iforce_zeros+6,_Cosine:_Sine+0x16c,_ExpectedStatusBytes:_MagY+1
+serialpc _StandardAddress:TimedOut_+0x24,0:0,_SerialPort:_SerialPortIRQ+4,_TimeOutTick:_SerialConnected+1 #bssalign para
+serial SerialInit_:SerialReceiveChar_+0x113,0:0,0:0,_InBuf:_StatusUpdated+1

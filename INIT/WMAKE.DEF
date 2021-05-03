@@ -7,7 +7,7 @@ lsub: $(SUBSYSTEMS) .SYMBOLIC
 
 $(SUBSYSTEMS): .SYMBOLIC
 	cd $@
-	wmake
+	wmake $(%SUBTARG)
 	cd ..
 !else
 lsub: .SYMBOLIC
@@ -47,3 +47,9 @@ AFLAGS = /c /W3 /Zd /nologo $(AFLAGS_INCPATH) $(AFLAGS_DEBUG) $(GLOBAL_AFLAGS)
 .asm.obj:
 	ml $(AFLAGS) $<
 
+clean: .SYMBOLIC
+	del /q *.obj
+	del /q *.lib
+	del /q *.exe
+	set SUBTARG=clean
+	%make lsub

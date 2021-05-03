@@ -1,0 +1,14 @@
+*.obj
+*.OBJ
+*.lib
+*.LIB
+*~
+*.exe
+*.EXE
+SOURCE/LIB/
+*.err
+*.ERR
+*.bak
+*.BAK
+descent2.map
+DESCENT2.MAP

@@ -1,0 +1,4 @@
+#lib main.lib
+3dmax game_3dmax_off_:game_3dmax_on_+0x6d,0:0,__3dmax_rcsid:__3dmax_rcsid+0x32
+vfx SenseSetVideo_:vfx_sense_init_+0x81,_vfx_str1:_vfx_str1+4,_vfx_rcsid:_sense_function+4
+vfxread xSenseStatus_:CleanUp_+0x53,0:0,_vfxread_rcsid:_vfxread_rcsid+0x32,_vfxread_data:_segment+2

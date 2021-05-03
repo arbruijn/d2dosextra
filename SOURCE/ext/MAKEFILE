@@ -1,0 +1,6 @@
+!include ..\..\init\wmake.def
+
+all: victor.obj
+
+.c.obj:
+	wcc386 $(CFLAGS) -i=..\main $<

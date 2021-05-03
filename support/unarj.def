@@ -1,0 +1,3 @@
+#lib unarj.lib
+unarj 0xab170:0xac233, 0xf70dc:0xf715c, 0x103dbc:0x103e20, _crctable:0x2b721c #symofs _crctable-4
+decode 0xc7ce0:0xc891c, 0:0, 0x10df28:0x0010df60, 0x2c1d08:0x2c510c #symofs _pt_table-16,_pt_table-14,_pt_table-12,_pt_table-10,_pt_table-8,_pt_table-6,_pt_table-4,_pt_table-2
