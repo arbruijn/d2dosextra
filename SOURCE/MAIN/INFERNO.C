@@ -1115,15 +1115,19 @@ int main(int argc,char **argv)
 	load_text();
 
 	//print out the banner title
-	printf("\nDESCENT 2 %s v%d.%d",VERSION_TYPE,Version_major,Version_minor);
+	//printf("\nDESCENT 2 %s v%d.%d",VERSION_TYPE,Version_major,Version_minor);
+	printf("\nDESCENT 2 %s",VERSION_TYPE);
 	#ifdef VERSION_NAME
 	printf("  %s", VERSION_NAME);
 	#endif
 	#ifdef SANTA
-	printf("  Vertigo Enhanced");
+	//printf("  Vertigo Enhanced");
 	#endif
+	printf(" Extra Enhanced v1.21");
 	printf("  %s %s\n", __DATE__,__TIME__);
 	printf("%s\n%s\n",TXT_COPYRIGHT,TXT_TRADEMARK);	
+	printf("\nThis is a MODIFIED version of DESCENT 2 which is NOT supported by Parallax or\n"
+	       "Interplay. More info at d2dosextra.2ar.nl\n");
 
 	check_id_checksum_and_date();
 
