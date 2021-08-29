@@ -38,7 +38,7 @@ extern song_info Songs[];
 #define MAX_NUM_SONGS			9
 #define Num_songs					9
 #else
-#define MAX_NUM_SONGS			30
+#define MAX_NUM_SONGS			64
 extern int Num_songs;	//how many MIDI songs
 #endif
 
