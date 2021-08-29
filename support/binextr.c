@@ -29,13 +29,15 @@ const char *opreg(ND_OPDESC_REGISTER *reg) {
 }
 #endif
 
-#ifdef __WATCOMC__
+#if defined(__WATCOMC__) && __WATCOMC__ < 1200
 #include <stdarg.h>
-static void snprintf(char *dst, int size, const char *msg, ...) {
+static int snprintf(char *dst, size_t size, const char *msg, ...) {
+    int ret;
     va_list vp;
     va_start(vp, msg);
-    vsprintf(dst, msg, vp);
+    ret = vsprintf(dst, msg, vp);
     va_end(vp);
+    return ret;
 }
 #endif
 
