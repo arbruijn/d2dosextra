@@ -1,5 +1,5 @@
 WATCOM Linker Version 9.5 (compatible)
-Created on:       21-04-24 13:41:47
+Created on:       21-05-04 09:28:56
 Executable Image: /home/arne/tmp/DESCENT2.EXE
 Executable Description: DESCENT2.EXE org
 
@@ -1370,7 +1370,7 @@ Address        Symbol
 0001:000818d8  RunMovie
 0001:00081a58  InitMovieBriefing_
 0001:00081aa0  MyShowFrame_
-0001:00081b50  ShowRobotBuffer_
+0001:00081b50  RotateRobot_
 0001:00081bb4  DeInitRobotMovie
 0001:00081c34  FUN_00091c34
 0001:00081c80  InitRobotMovie
@@ -2598,7 +2598,7 @@ Address        Symbol
 0001:000bf73c  _sosDRVVDSGetBuffer
 0001:000bf7aa  _sosDRVVDSFreeBuffer
 0001:000bf7f9  _sosDRVMakeDMASelector
-0001:000bf892  FUN_000cf892
+0001:000bf892  _sosDRVFreeDMASelector
 0001:000bf8be  _getDS
 0001:000bf8c2  FUN_000cf8c2
 0001:000bf8c6  _sosDIGIDrv_End
@@ -2606,24 +2606,24 @@ Address        Symbol
 0001:000bf8cd  callbackGetTable_
 0001:000bf90e  sosMIDICbck_End_
 0001:000bf914  sosMIDIDigi_Start_
-0001:000bf91a  digiGetCallTable
+0001:000bf91a  digiGetCallTable_
 0001:000bf922  _digiSendData
 0001:000bfbec  _digiInit
 0001:000bfd1a  _digiUnInit
 0001:000bfd66  _digiReset
 0001:000bfd7b  _digiSetInstrumentData
-0001:000bfeb9  FUN_000cfeb9
+0001:000bfeb9  _digiSampleCallback
 0001:000bfed5  sosMIDIDigi_End_
 0001:000bfedb  sosMIDIDone_Start_
 0001:000bfedc  sosMIDISongDone_
 0001:000bfeec  sosMIDIDone_End_
 0001:000bfeed  sosMIDIDq_Start_
 0001:000bfef3  digiQueueInit_
-0001:000bff52  digiQueueUnInit
+0001:000bff52  digiQueueUnInit_
 0001:000bff53  digiQueueAddItem_
-0001:000bffc8  FUN_000cffc8
-0001:000c0091  FUN_000d0091
-0001:000c015d  FUN_000d015d
+0001:000bffc8  digiQueueGetItem_
+0001:000c0091  digiQueueDeleteItemMIDI_
+0001:000c015d  digiQueueDeleteItem_
 0001:000c0214  digiQueueFindItemMIDI_
 0001:000c0264  digiQueueGetItemWAVE_
 0001:000c032a  digiQueueDeleteItemWAVE_
@@ -2633,8 +2633,8 @@ Address        Symbol
 0001:000c05a6  sosMIDIUnLoadDriver_
 0001:000c0639  sosMIDILoad_End_
 0001:000c063a  sosMIDITmpo_Start_
-0001:000c063b  FUN_000d063b
-0001:000c0698  FUN_000d0698
+0001:000c063b  sosMIDISongAlterTempo_
+0001:000c0698  sosMIDIGetTimeToPlay_
 0001:000c06ad  sosMIDITmpo_End_
 0001:000c06ae  _fstrcpy_
 0001:000c06db  _waveSendData
@@ -2659,6 +2659,8 @@ Address        Symbol
 0001:000c1270  _xint3
 0001:000c1272  _xgetES
 0001:000c1278  _sosDIGITimer_Start
+0001:000c1279  _sosTIMERDRVHandler
+0001:000c12e0  _sosTIMERDRVFHandler
 0001:000c12f5  _sosTIMERDRVSetRate
 0001:000c133d  _sosTIMERDRVInit
 0001:000c1401  _sosTIMERDRVDisable
@@ -2673,7 +2675,7 @@ Address        Symbol
 0001:000c1982  sosDIGIUnLoadTimer_
 0001:000c1a00  sosDIGILoad_End_
 0001:000c1a06  sosDIGIPlying_Start_
-0001:000c1a07  FUN_000d1a07
+0001:000c1a07  sosDIGISamplesPlaying_
 0001:000c1a46  sosDIGIPlying_End_
 0001:000c1a47  sosDIGIRate_Start_
 0001:000c1a63  sosDIGIDetec_Start_
